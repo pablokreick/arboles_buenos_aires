@@ -1,26 +1,50 @@
 import "./App.css";
+import Footer from "./components/layout/Footer";
+import Header from "./components/layout/Header";
+import TreeCard from "./components/common/TreeCard";
+import { arboles } from "./mock/data";
+import { useEffect, useState } from "react";
+import TreeDetail from "./components/common/TreeDetail";
 
 function App() {
+	const [data, setData] = useState([]);
+	const [selectedTree, setSelectedTree] = useState(null);
+
+	useEffect(() => {
+		const dataPromise = new Promise((res) => {
+			setTimeout(() => {
+				res(arboles);
+			}, 500);
+		});
+		dataPromise.then(setData);
+	}, []);
+
+	const handleClick = (tree) => {
+		setSelectedTree(tree);
+	};
+
 	return (
 		<div className="min-h-screen bg-green-50 text-slate-800 font-text selection:bg-green-200">
-			<header>
-				<div className="text-center py-10">
-					<h1 className="text-4xl md:text-7xl text-gray-900 font-black">
-						Especies permitidas en <br />
-						<span className="text-transparent bg-linear-to-r from-green-400 to-green-800 bg-clip-text">CABA</span>
-					</h1>
-					<p className="text-lg md:text-xl text-gray-500 mt-10">
-						Api pública y guía de referencia para el arbolado en las veredas de la ciudad de Buenos Aires.
-					</p>
-				</div>
-			</header>
-			<main></main>
-			<footer className="border-t border-gray-200 bg-white pt-16 pb-4 text-gray-400">
-				<div className="flex justify-center items-center flex-col gap-4 text-center">
-					<a href="#">GitHub</a>
-					<p className="text-base">&copy; 2025 Arbolado Buenos Aires API. Proyecto Open Source.</p>
-				</div>
-			</footer>
+			<Header />
+			<div className="max-w-7xl px-4 lg:px-40 mx-auto">
+				<main className="py-16">
+					<div className="py-10">
+						<h2 className="text-2xl md:text-4xl text-slate-800">Árboles aptos para las veredas de CABA</h2>
+						<p className="text-gray-500 mt-4">Sólo el Gobierno de la Ciudad, a través de las Comunas puede realizar plantaciones</p>
+						<p className="text-gray-500 mt-4">
+							A medida que haya que remover los árboles que estén en las veredas y no se encuentren en estos listados, serán reemplazados por alguna especie que
+							sí esté en el listado y se adapte al lugar.
+						</p>
+					</div>
+					<div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+						{data?.map((tree) => (
+							<TreeCard tree={tree} key={tree.id} handleClick={handleClick} />
+						))}
+					</div>
+				</main>
+			</div>
+			{selectedTree && <TreeDetail tree={selectedTree} onClose={() => setSelectedTree(null)} />}
+			<Footer />
 		</div>
 	);
 }
