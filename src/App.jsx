@@ -2,7 +2,7 @@ import "./App.css";
 import Footer from "./components/layout/Footer";
 import Header from "./components/layout/Header";
 import TreeCard from "./components/common/TreeCard";
-import { arboles } from "./mock/data";
+import { trees } from "./mock/trees";
 import { useEffect, useState } from "react";
 import TreeDetail from "./components/common/TreeDetail";
 
@@ -13,7 +13,7 @@ function App() {
 	useEffect(() => {
 		const dataPromise = new Promise((res) => {
 			setTimeout(() => {
-				res(arboles);
+				res(trees);
 			}, 500);
 		});
 		dataPromise.then(setData);

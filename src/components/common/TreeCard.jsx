@@ -16,27 +16,27 @@ const TreeCard = ({ tree, handleClick }) => {
 				<span className="text-center text-gray-400 opacity-0 group-hover:opacity-100 transition-all duration-300">
 					APTO VEREDA
 					<br />
-					{tree.urbanismo.ancho_vereda_recomendado.min}m - {tree.urbanismo.ancho_vereda_recomendado.max}m
+					{tree.urban_constraints.recommended_sidewalk_width[0]}m - {tree.urban_constraints.recommended_sidewalk_width[1]}m
 				</span>
 			</div>
-			<h3 className="text-xl md:text-2xl text-gray-800 group-hover:text-green-800 duration-300 transition-colors">{tree?.especie?.nombre_comun}</h3>
-			<p className="italic text-gray-400 mb-4">{tree?.especie?.nombre_cientifico}</p>
+			<h3 className="text-xl md:text-2xl text-gray-800 group-hover:text-green-800 duration-300 transition-colors">{tree.common_name}</h3>
+			<p className="italic text-gray-400 mb-4">{tree.scientific_name}</p>
 			<ul>
 				<li className="my-3 flex gap-2 items-center justify-start text-sm text-gray-600">
 					<Sun className="h-4 w-4 text-yellow-500" />
-					<span>Exposición: {tree.requerimientos.luz_solar}</span>
+					<span>Exposición: {tree.requirements.sun_exposure}</span>
 				</li>
 				<li className="my-3 flex gap-2 items-center justify-start text-sm text-gray-600">
 					<Droplets className="h-4 w-4 text-blue-500" />
-					<span>Riego: {tree.requerimientos.riego}</span>
+					<span>Riego: {tree.requirements.watering}</span>
 				</li>
 				<li className="my-3 flex gap-2 items-center justify-start text-sm text-gray-600">
 					<Sprout className="h-4 w-4 text-green-500" />
-					<span>Crecimiento: {tree.morfologia.velocidad_crecimiento}</span>
+					<span>Crecimiento: {tree.morphology.growth_speed}</span>
 				</li>
 			</ul>
 			<div className="flex justify-between items-center mt-6">
-				<span className="text-xs font-medium text-gray-400 uppercase tracking-wider">{tree.especie.origen}</span>
+				<span className="text-xs font-medium text-gray-400 uppercase tracking-wider">{tree.taxonomy.origin}</span>
 				<span className="text-xs font-medium text-gray-400 uppercase tracking-wider opacity-0 group-hover:text-green-400 group-hover:opacity-100 transition-all">
 					+ info
 				</span>
