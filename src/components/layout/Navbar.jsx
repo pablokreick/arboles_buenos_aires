@@ -1,3 +1,6 @@
+import { Terminal, TreeDeciduous } from "lucide-react";
+import { NavLink } from "react-router";
+
 const Navbar = () => {
 	return (
 		<div className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-green-100 transition-all duration-300">
@@ -5,14 +8,28 @@ const Navbar = () => {
 				<nav className="w-full">
 					<ul className="flex justify-center items-center">
 						<li>
-							<a href="/" className="text-lg font-semibold text-green-800 p-3 hover:text-green-400 duration-300 transition-all">
-								Árboles
-							</a>
+							<NavLink
+								to="/"
+								className={({ isActive }) =>
+									`text-lg font-semibold p-3 duration-300 transition-all flex items-center gap-2 hover:text-green-400 ${
+										isActive ? "text-green-600  bg-green-50 rounded-xl" : "text-green-800"
+									}`
+								}
+							>
+								<TreeDeciduous size={18} /> Árboles
+							</NavLink>
 						</li>
 						<li>
-							<a href="/documentation" className="text-lg font-semibold text-green-800 p-3 hover:text-green-400 duration-300 transition-all">
-								Documentación
-							</a>
+							<NavLink
+								to="/documentation"
+								className={({ isActive }) =>
+									`text-lg font-semibold p-3 duration-300 transition-all flex items-center gap-2 hover:text-green-400 ${
+										isActive ? "text-green-600  bg-green-50 rounded-xl" : "text-green-800"
+									}`
+								}
+							>
+								<Terminal size={18} /> Documentación
+							</NavLink>
 						</li>
 					</ul>
 				</nav>
