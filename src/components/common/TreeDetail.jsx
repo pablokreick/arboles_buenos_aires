@@ -1,30 +1,9 @@
 import { AlertTriangle, CloudSun, Flower, Info, Leaf, MapPin, Nut, Palette, Ruler, X } from "lucide-react";
 import { createPortal } from "react-dom";
-
-const Badge = ({ text, color = "bg-gray-100 text-gray-700" }) => (
-	<span className={`px-2.5 py-0.5 rounded-full text-xs font-semibold ${color} border border-black/5`}>{text}</span>
-);
-
-const SectionTitle = ({ text, icon, color = "text-gray-400", uppercase = true }) => (
-	<h3 className={`flex items-center gap-2 text-sm font-bold ${color} ${uppercase ? "uppercase" : ""} mb-3 mt-6 first:mt-0`}>
-		{icon} {text}
-	</h3>
-);
-
-const DetailRow = ({ label, value, color = "text-gray-800" }) => (
-	<div className="flex justify-between items-start py-1 border-b border-gray-100 last:border-0">
-		<span className="text-gray-500 text-sm">{label}:</span>
-		<span className={`font-medium ${color} text-sm text-right ml-4`}>{value}</span>
-	</div>
-);
-
-const StatBox = ({ label, value, sub }) => (
-	<div className="bg-slate-50 p-3 rounded-lg text-center border border-slate-100">
-		<div className="text-xl font-bold text-slate-800">{value}</div>
-		<div className="text-xs text-slate-500 font-medium uppercase">{label}</div>
-		{sub && <div className="text-[10px] text-slate-400 mt-1">{sub}</div>}
-	</div>
-);
+import Badge from "./Badge";
+import SectionTitle from "./SectionTitle";
+import DetailRow from "./DetailRow";
+import StatBox from "./StatBox";
 
 const TreeDetail = ({ tree, onClose }) => {
 	if (!tree) return null;
