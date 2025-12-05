@@ -10,7 +10,7 @@ const Navbar = () => {
 							</a>
 						</li>
 						<li>
-							<a href="/" className="text-lg font-semibold text-green-800 p-3 hover:text-green-400 duration-300 transition-all">
+							<a href="/documentation" className="text-lg font-semibold text-green-800 p-3 hover:text-green-400 duration-300 transition-all">
 								Documentación
 							</a>
 						</li>
