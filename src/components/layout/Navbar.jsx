@@ -12,7 +12,7 @@ const Navbar = () => {
 								to="/"
 								className={({ isActive }) =>
 									`text-lg font-semibold p-3 duration-300 transition-all flex items-center gap-2 hover:text-green-400 ${
-										isActive ? "text-green-600  bg-green-50 rounded-xl" : "text-green-800"
+										isActive ? "text-green-600  bg-green-100 rounded-xl" : "text-green-800"
 									}`
 								}
 							>
@@ -24,7 +24,7 @@ const Navbar = () => {
 								to="/documentation"
 								className={({ isActive }) =>
 									`text-lg font-semibold p-3 duration-300 transition-all flex items-center gap-2 hover:text-green-400 ${
-										isActive ? "text-green-600  bg-green-50 rounded-xl" : "text-green-800"
+										isActive ? "text-green-600  bg-green-100 rounded-xl" : "text-green-800"
 									}`
 								}
 							>

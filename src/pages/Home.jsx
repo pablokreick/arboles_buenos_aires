@@ -23,8 +23,14 @@ const Home = () => {
 	};
 
 	return (
-		<div className="min-h-screen bg-green-50 text-slate-800 font-text selection:bg-green-200">
-			<Header />
+		<div className="min-h-screen bg-green-50 text-slate-800 font-text selection:bg-green-300">
+			<Header>
+				<h1 className="text-4xl md:text-7xl text-gray-900 font-black">
+					Especies de árboles permitidas en <br />
+					<span className="text-transparent bg-linear-to-r from-green-400 to-green-800 bg-clip-text">CABA</span>
+				</h1>
+				<p className="text-lg md:text-xl text-gray-900 mt-10">Conocé los árboles de las veredas porteñas: API abierta y guía completa.</p>
+			</Header>
 			<div className="max-w-7xl px-4 lg:px-40 mx-auto">
 				<main className="py-16">
 					<div className="py-10">

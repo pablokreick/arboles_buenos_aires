@@ -13,7 +13,7 @@ const TreeDetail = ({ tree, onClose }) => {
 	const getSidewalkRange = (range) => (Array.isArray(range) ? `${range[0]}m - ${range[1]}m` : `${range}m`);
 
 	return createPortal(
-		<div className="fixed inset-0 z-[1000] flex justify-center items-center">
+		<div className="fixed inset-0 z-[1000] flex justify-center items-center selection:bg-green-100">
 			<div className="absolute inset-0 bg-black/40 backdrop-blur-sm transition-opacity" onClick={onClose}></div>
 			<div className="w-full max-w-4xl bg-white rounded-2xl shadow-2xl overflow-hidden relative max-h-[90vh] flex flex-col">
 				{/* HEADER */}
@@ -39,7 +39,7 @@ const TreeDetail = ({ tree, onClose }) => {
 						{/* LEFT COLUMN */}
 						<div className="space-y-6">
 							{/* ORNAMENTAL VALUE */}
-							<div className="bg-purple-50 p-6 rounded-xl border border-purple-100">
+							<div className="bg-purple-50 p-6 rounded-xl border border-purple-100 selection:bg-purple-300">
 								<SectionTitle text="Valor Ornamental" icon={<Palette className="w-4 h-4" />} color="text-purple-800" uppercase={false} />
 								<p className="text-purple-900/80 text-sm mb-3 leading-relaxed">{tree.ornamental_value.description}</p>
 								<div className="flex flex-wrap gap-2">
